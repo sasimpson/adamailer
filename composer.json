@@ -10,5 +10,5 @@
             "ADAMailer\\": "src/"
         },
         "files": ["src/ADAMailer/Mailer.php"]
-    },
+    }
 }
