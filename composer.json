@@ -1,5 +1,6 @@
 {
     "license": "MIT",
+    "version": 0.1,
     "require": {
         "mailgun/mailgun-php": "~1.8"
     }
