@@ -1,4 +1,5 @@
 {
+    "name": "sasimpson/adamailer",
     "license": "MIT",
     "version": 0.1,
     "require": {
