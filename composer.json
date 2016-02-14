@@ -1,0 +1,6 @@
+{
+    "license": "MIT",
+    "require": {
+        "mailgun/mailgun-php": "~1.8"
+    }
+}
