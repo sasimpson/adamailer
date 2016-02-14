@@ -4,5 +4,11 @@
     "version": 0.1,
     "require": {
         "mailgun/mailgun-php": "~1.8"
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "ADAMailer\\": "src/"
+        },
+        "files": ["src/ADAMailer/Mailer.php"]
+    },
 }
