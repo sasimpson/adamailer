@@ -35,6 +35,20 @@ class MailerTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(2, $count);
     }
 
+    public function testAddFields() {
+        $mailer = new Mailer($this->apikey, $this->domain, $this->to, $this->from, $this->subject);
+        $count = $mailer->getFields();
+        $this->assertCount(0, $count);
+        $fields = [
+            ["Foo", "foo", "string"],
+            ["Bar", "bar", "string"],
+            ["Baz", "Baz", "number"],
+        ];
+        $mailer->addFields($fields);
+        $count = $mailer->getFields();
+        $this->assertCount(3, $count);
+    }
+
     public function testMessageGeneration() {
         $mailer = new Mailer($this->apikey, $this->domain, $this->to, $this->from, $this->subject);
         $mailer->setMessage("This is a test message");

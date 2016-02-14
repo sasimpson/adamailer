@@ -21,13 +21,15 @@ class Mailer {
         $this->subject = $subject;
     }
 
-    public function send($message){
+    public function send($msg){
+        print $msg;
         $mg = new Mailgun($this->apikey);
-        $mg->sendMessage($this->domain, array(
-                                        'from'    => $this->from_email,
-                                        'to'      => $this->to_emails,
-                                        'subject' => $this->subject,
-                                        'text'    => $message));
+        $params = array( 'from'    => $this->from_email,
+                         'to'      => $this->to_emails,
+                         'subject' => $this->subject,
+                         'text'    => $msg);
+        print_r($params);
+        $mg->sendMessage($this->domain, $params);
     }
 
     public function setMessage($message) {
@@ -69,6 +71,12 @@ class Mailer {
                 "validate" => $validate
             ]
         );
+    }
+
+    public function addFields($fields) {
+        foreach($fields as $field) {
+            call_user_func_array(array($this, "addField"), $field);
+        }
     }
 
     public function getFields(){
