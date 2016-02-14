@@ -48,7 +48,7 @@ class Mailer {
     public function gatherFields(){
         $updated_fields = array();
         foreach ($this->fields as $item) {
-            if (array_key_exists("foo", $_POST)) {
+            if (array_key_exists($item["field"], $_POST)) {
                 $item["value"] = $_POST[$item["field"]];
             }
             // else {
