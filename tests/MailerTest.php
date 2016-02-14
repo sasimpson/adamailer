@@ -1,6 +1,6 @@
 <?php
-namespace Mailer;
-require_once(__DIR__ . "/../src/Mailer.php");
+namespace ADAMailer;
+require_once(__DIR__ . "/../src/ADAMailer/Mailer.php");
 
 class MailerTest extends \PHPUnit_Framework_TestCase
 {

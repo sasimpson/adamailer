@@ -1,5 +1,5 @@
 <?php
-    namespace Mailer;
+    namespace ADAMailer;
 
     require 'vendor/autoload.php';
     use Mailgun\Mailgun;
@@ -22,13 +22,13 @@
             $this->subject = $subject;
         }
 
-        public function send(){
+        public function send($message){
             $mg = new Mailgun($this->apikey);
             $mg->sendMessage($this->domain, array(
                                             'from'    => $this->from_email,
                                             'to'      => $this->to_emails,
                                             'subject' => $this->subject,
-                                            'text'    => $this->message));
+                                            'text'    => $message));
         }
 
         public function setMessage($message) {
