@@ -22,13 +22,11 @@ class Mailer {
     }
 
     public function send($msg){
-        print $msg;
         $mg = new Mailgun($this->apikey);
         $params = array( 'from'    => $this->from_email,
                          'to'      => $this->to_emails,
                          'subject' => $this->subject,
                          'text'    => $msg);
-        print_r($params);
         $mg->sendMessage($this->domain, $params);
     }
 
@@ -53,9 +51,6 @@ class Mailer {
             if (array_key_exists($item["field"], $_POST)) {
                 $item["value"] = $_POST[$item["field"]];
             }
-            // else {
-            //     $item["value"] = "";
-            // }
             array_push($updated_fields, $item);
         }
         $this->fields = $updated_fields;
