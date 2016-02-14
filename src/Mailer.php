@@ -14,7 +14,9 @@
         private $domain;
         private $fields = array();
 
-        public function __construct($to, $from, $subject) {
+        public function __construct($apikey, $domain, $to, $from, $subject) {
+            $this->apikey = $apikey;
+            $this->domain = $domain;
             $this->to_emails = $to;
             $this->from_email = $from;
             $this->subject = $subject;
